@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Historias de Usuario</title>
+    <link rel="stylesheet" href="css/msg.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <header class="topbar">
+        <h1>Gestor de Historias de Usuario</h1>
+        <nav class="topbar-nav">
+            <a href="../intro/index.html">Inicio</a>
+            <a href="sprints.html">Sprints</a>
+            <a href="nueva_historia.html">Nueva Historia</a>
+            <a href="index.html" class="active">Tablero de Historias</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Tablero de Historias de Usuario</h2>
+            <div class="toolbar">
+                <div class="filters-row">
+                    <select id="filtroSprint">
+                        <option value="">Todos los sprints</option>
+                    </select>
+                    <select id="filtroEstado">
+                        <option value="">Todos los estados</option>
+                        <option value="nueva">nueva</option>
+                        <option value="activa">activa</option>
+                        <option value="finalizada">finalizada</option>
+                        <option value="impedimento">impedimento</option>
+                    </select>
+                    <button type="button" id="btnLimpiarFiltros" class="btn btn-secondary btn-sm">Limpiar</button>
+                </div>
+                <div class="filters-row">
+                    <button type="button" id="btnVistaLista" class="btn btn-secondary btn-sm">Vista Lista</button>
+                    <button type="button" id="btnVistaSprint" class="btn btn-secondary btn-sm">Agrupar por Sprint</button>
+                </div>
+            </div>
+            <div id="contenedorHistorias" class="historias-list"></div>
+        </section>
+    </main>
+
+    <div id="modalEditar" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Historia de Usuario</h3>
+                <button type="button" id="cerrarModal" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditarHistoria">
+                    <input type="hidden" id="editId">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="editTitulo">Titulo</label>
+                            <input type="text" id="editTitulo" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="editDescripcion">Descripcion</label>
+                            <textarea id="editDescripcion" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editResponsable">Responsable</label>
+                            <input type="text" id="editResponsable" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEstado">Estado</label>
+                            <select id="editEstado">
+                                <option value="nueva">nueva</option>
+                                <option value="activa">activa</option>
+                                <option value="finalizada">finalizada</option>
+                                <option value="impedimento">impedimento</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPuntos">Puntos</label>
+                            <input type="number" id="editPuntos" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editSprint">Sprint</label>
+                            <select id="editSprint" required>
+                                <option value="">Seleccione un sprint...</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="editFechaFinalizacion">Fecha de Finalizacion (opcional)</label>
+                            <input type="date" id="editFechaFinalizacion">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        <button type="button" id="cancelarModal" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/historias.js"></script>
+</body>
+</html>

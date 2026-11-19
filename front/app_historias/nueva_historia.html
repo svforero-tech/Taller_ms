@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Historia de Usuario</title>
+    <link rel="stylesheet" href="css/msg.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <header class="topbar">
+        <h1>Gestor de Historias de Usuario</h1>
+        <nav class="topbar-nav">
+            <a href="../intro/index.html">Inicio</a>
+            <a href="sprints.html">Sprints</a>
+            <a href="nueva_historia.html" class="active">Nueva Historia</a>
+            <a href="index.html">Tablero de Historias</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Nueva Historia de Usuario</h2>
+            <form id="formHistoria">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="historiaTitulo">Titulo</label>
+                        <input type="text" id="historiaTitulo" required placeholder="Ej. Implementar autenticacion">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="historiaDescripcion">Descripcion</label>
+                        <textarea id="historiaDescripcion" required placeholder="Describe el alcance de la historia..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="historiaResponsable">Responsable</label>
+                        <input type="text" id="historiaResponsable" required placeholder="Ej. Sara">
+                    </div>
+                    <div class="form-group">
+                        <label for="historiaEstado">Estado</label>
+                        <select id="historiaEstado">
+                            <option value="nueva">nueva</option>
+                            <option value="activa">activa</option>
+                            <option value="finalizada">finalizada</option>
+                            <option value="impedimento">impedimento</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="historiaPuntos">Puntos de historia</label>
+                        <input type="number" id="historiaPuntos" min="0" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="historiaSprint">Sprint</label>
+                        <select id="historiaSprint" required>
+                            <option value="">Seleccione un sprint...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Crear Historia</button>
+                    <a href="index.html" class="btn btn-secondary" style="text-decoration:none;">Ver Tablero de Historias</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="js/historias.js"></script>
+</body>
+</html>

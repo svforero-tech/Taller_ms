@@ -1,0 +1,34 @@
+### 1. Crear un Sprint (sprints_ms - puerto 8001)
+POST http://127.0.0.1:8001/sprints
+Content-Type: application/json
+
+{
+  "nombre": "Sprint 1 - Fundamentos",
+  "fecha_inicio": "2026-11-19",
+  "fecha_fin": "2026-12-03"
+}
+
+### 2. Listar todos los Sprints
+GET http://127.0.0.1:8001/sprints
+
+### 3. Crear una Historia de Usuario (historial_ms - puerto 8002)
+POST http://127.0.0.1:8002/historias
+Content-Type: application/json
+
+{
+  "titulo": "Diseñar base de datos",
+  "descripcion": "Crear tablas sprints e historias en MySQL",
+  "responsable": "Sara",
+  "estado": "finalizada",
+  "puntos": 5,
+  "sprint_id": 1
+}
+
+### 4. Listar todas las Historias
+GET http://127.0.0.1:8002/historias
+
+### 5. Ver Historias agrupadas por Sprint
+GET http://127.0.0.1:8002/historias/por-sprint
+
+### 6. Ver Informe General y por Responsable
+GET http://127.0.0.1:8002/informes

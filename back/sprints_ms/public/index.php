@@ -18,4 +18,6 @@ $cors($app);
 $routes = require __DIR__ . '/../app/Presentation/Routers/endpoints.php';
 $routes($app);
 
+$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+
 $app->run();

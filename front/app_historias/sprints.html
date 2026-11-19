@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Sprints</title>
+    <link rel="stylesheet" href="css/msg.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <header class="topbar">
+        <h1>Gestor de Historias de Usuario</h1>
+        <nav class="topbar-nav">
+            <a href="../intro/index.html">Inicio</a>
+            <a href="sprints.html" class="active">Sprints</a>
+            <a href="nueva_historia.html">Nueva Historia</a>
+            <a href="index.html">Tablero de Historias</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Nuevo Sprint</h2>
+            <form id="formSprint">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="sprintNombre">Nombre del Sprint</label>
+                        <input type="text" id="sprintNombre" required placeholder="Ej. Sprint 1">
+                    </div>
+                    <div class="form-group">
+                        <label for="sprintInicio">Fecha Inicio</label>
+                        <input type="date" id="sprintInicio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sprintFin">Fecha Fin</label>
+                        <input type="date" id="sprintFin">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Guardar Sprint</button>
+                    <a href="nueva_historia.html" class="btn btn-secondary" style="text-decoration:none;">Ir a Crear Historia</a>
+                </div>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Sprints Registrados</h2>
+            <div id="contenedorSprints" class="historias-list"></div>
+        </section>
+    </main>
+
+    <script type="module" src="js/historias.js"></script>
+</body>
+</html>
