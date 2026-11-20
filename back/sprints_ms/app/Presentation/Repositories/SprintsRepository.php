@@ -22,7 +22,7 @@ class SprintsRepository
         return Sprint::create([
             'nombre'       => $data['nombre'],
             'fecha_inicio' => $data['fecha_inicio'],
-            'fecha_fin'    => !empty($data['fecha_fin']) ? $data['fecha_fin'] : null,
+            'fecha_fin'    => $data['fecha_fin'],
         ]);
     }
 

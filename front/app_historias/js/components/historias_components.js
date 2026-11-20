@@ -66,7 +66,6 @@ export function renderHistoriasPorSprint(sprints = []) {
     return sprints.map(sprint => {
         const historias = Array.isArray(sprint.historias) ? sprint.historias : [];
         const totalPuntos = historias.reduce((acc, item) => acc + (Number(item.puntos) || 0), 0);
-        const fechaFinTexto = sprint.fecha_fin ? `al ${escapeHtml(sprint.fecha_fin)}` : '(En curso)';
 
         const itemsHtml = historias.length > 0
             ? historias.map(h => `
@@ -88,7 +87,7 @@ export function renderHistoriasPorSprint(sprints = []) {
                 <div class="sprint-grupo-header">
                     <div>
                         <h4>${escapeHtml(sprint.nombre)}</h4>
-                        <small>${escapeHtml(sprint.fecha_inicio)} ${fechaFinTexto}</small>
+                        <small>${escapeHtml(sprint.fecha_inicio)} al ${escapeHtml(sprint.fecha_fin)}</small>
                     </div>
                     <span class="sprint-resumen">${historias.length} historias | ${totalPuntos} pts</span>
                 </div>

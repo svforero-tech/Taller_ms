@@ -4,49 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablero de Historias de Usuario</title>
+    <link rel="stylesheet" href="css/intro.css">
     <link rel="stylesheet" href="css/msg.css">
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/modals.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
+<body class="inicio-body">
     <div id="toastContainer" class="toast-container"></div>
 
-    <header class="topbar">
-        <h1>Gestor de Historias de Usuario</h1>
-        <nav class="topbar-nav">
-            <a href="../intro/index.html">Inicio</a>
-            <a href="sprints.html">Sprints</a>
-            <a href="nueva_historia.html">Nueva Historia</a>
-            <a href="index.html" class="active">Tablero de Historias</a>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="card">
-            <h2>Tablero de Historias de Usuario</h2>
-            <div class="toolbar">
-                <div class="filters-row">
-                    <select id="filtroSprint">
-                        <option value="">Todos los sprints</option>
-                    </select>
-                    <select id="filtroEstado">
-                        <option value="">Todos los estados</option>
-                        <option value="nueva">nueva</option>
-                        <option value="activa">activa</option>
-                        <option value="finalizada">finalizada</option>
-                        <option value="impedimento">impedimento</option>
-                    </select>
-                    <button type="button" id="btnLimpiarFiltros" class="btn btn-secondary btn-sm">Limpiar</button>
-                </div>
-                <div class="filters-row">
-                    <button type="button" id="btnVistaLista" class="btn btn-secondary btn-sm">Vista Lista</button>
-                    <button type="button" id="btnVistaSprint" class="btn btn-secondary btn-sm">Agrupar por Sprint</button>
-                </div>
+    <div class="app-sidebar-layout">
+        <aside class="inicio-sidebar">
+            <div class="inicio-brand">
+                <div class="inicio-avatar" aria-hidden="true">HU</div>
+                <h2>Gestor de Historias</h2>
+                <p>Organiza tus tareas por periodos de trabajo</p>
             </div>
-            <div id="contenedorHistorias" class="historias-list"></div>
-        </section>
-    </main>
+
+            <nav class="inicio-nav" aria-label="Menú principal">
+                <a href="../intro/index.html" class="inicio-btn inicio-btn-outline">Inicio</a>
+                <a href="nueva_historia.html" class="inicio-btn inicio-btn-outline">+ Nueva historia</a>
+                <a href="sprints.html" class="inicio-btn inicio-btn-outline">+ Nuevo sprint</a>
+                <a href="index.html" class="inicio-btn inicio-btn-outline active">Tablero de Historias</a>
+            </nav>
+        </aside>
+
+        <main class="app-sidebar-content container">
+            <section class="card">
+                <h2>Tablero de Historias de Usuario</h2>
+                <div class="toolbar">
+                    <div class="filters-row">
+                        <select id="filtroSprint">
+                            <option value="">Todos los sprints</option>
+                        </select>
+                        <select id="filtroEstado">
+                            <option value="">Todos los estados</option>
+                            <option value="nueva">nueva</option>
+                            <option value="activa">activa</option>
+                            <option value="finalizada">finalizada</option>
+                            <option value="impedimento">impedimento</option>
+                        </select>
+                        <button type="button" id="btnLimpiarFiltros" class="btn btn-secondary btn-sm">Limpiar</button>
+                    </div>
+                    <div class="filters-row">
+                        <button type="button" id="btnVistaLista" class="btn btn-secondary btn-sm">Vista Lista</button>
+                        <button type="button" id="btnVistaSprint" class="btn btn-secondary btn-sm">Agrupar por Sprint</button>
+                    </div>
+                </div>
+                <div id="contenedorHistorias" class="historias-list"></div>
+            </section>
+        </main>
+    </div>
 
     <div id="modalEditar" class="modal-backdrop">
         <div class="modal-content">

@@ -244,18 +244,40 @@ function renderListaSprints() {
         return;
     }
 
-    contenedor.innerHTML = state.sprints.map(sp => {
-        const textoFin = sp.fecha_fin ? sp.fecha_fin : 'En curso (sin finalizar)';
-
-        return `
-            <article class="historia-card">
-                <div class="historia-header">
-                    <div>
-                        <h4>${sp.nombre}</h4>
-                        <small class="meta-info">Inicio: <strong>${sp.fecha_inicio}</strong> | Fin: <strong>${textoFin}</strong></small>
-                    </div>
+    contenedor.innerHTML = state.sprints.map(sp => `
+        <article class="historia-card">
+            <div class="historia-header">
+                <div>
+                    <h4>${sp.nombre}</h4>
+                    <small class="meta-info">Inicio: <strong>${sp.fecha_inicio}</strong> | Fin: <strong>${sp.fecha_fin}</strong></small>
                 </div>
-            </article>
-        `;
-    }).join('');
+            </div>
+        </article>
+    `).join('');
+}
+
+function activarTransicionNavegacion() {
+    document.addEventListener('click', (event) => {
+        const enlace = event.target.closest('a[href]');
+        if (!enlace) return;
+
+        const href = enlace.getAttribute('href');
+        if (
+            !href ||
+            href.startsWith('#') ||
+            enlace.target === '_blank' ||
+            event.ctrlKey ||
+            event.metaKey ||
+            event.shiftKey ||
+            event.altKey
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+        document.body.classList.add('pagina-saliendo');
+        setTimeout(() => {
+            window.location.href = enlace.href;
+        }, 140);
+    });
 }

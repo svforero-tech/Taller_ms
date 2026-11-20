@@ -3,52 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Historias de Usuario - Inicio</title>
+    <title>Seguimiento de historias de usuario por sprints</title>
     <link rel="stylesheet" href="../app_historias/css/msg.css">
     <link rel="stylesheet" href="../app_historias/css/forms.css">
     <link rel="stylesheet" href="../app_historias/css/modals.css">
     <link rel="stylesheet" href="../app_historias/css/app.css">
     <link rel="stylesheet" href="../app_historias/css/intro.css">
 </head>
-<body>
+<body class="inicio-body">
     <div id="toastContainer" class="toast-container"></div>
 
-    <div class="dashboard-layout">
-        <!-- Columna izquierda: Menú completo -->
-        <aside class="panel panel-menu">
-            <div class="panel-header">
-                <h1>Gestor de Historias</h1>
-                <p>Menú principal del proyecto</p>
+    <div class="inicio-layout">
+        <!-- Columna izquierda: Menú fijo / reutilizable -->
+        <aside class="inicio-sidebar">
+            <div class="inicio-brand">
+                <img src="../resources/saludorobot.png" alt="Logo Gestor de Historias" class="inicio-logo">
+                <h2>Bienvenido a tu tablero de tareas</h2>
+                <p>Organiza tus tareas por periodos de trabajo</p>
             </div>
 
-            <nav class="side-menu">
-                <a href="index.html" class="menu-link active">Inicio</a>
-                <a href="../app_historias/sprints.html" class="menu-link">Gestionar Sprints</a>
-                <a href="../app_historias/nueva_historia.html" class="menu-link">Crear Historia</a>
-                <a href="../app_historias/index.html" class="menu-link">Tablero de Historias</a>
+            <nav class="inicio-nav" aria-label="Menú principal">
+                <a href="../app_historias/nueva_historia.html" class="inicio-btn inicio-btn-primary">+ Nueva historia</a>
+                <a href="../app_historias/sprints.html" class="inicio-btn inicio-btn-secondary">+ Nuevo sprint</a>
+                <a href="../app_historias/index.html" class="inicio-btn inicio-btn-outline">Ir al tablero</a>
             </nav>
-        </aside>
 
-        <!-- Columna central: Sprints registrados -->
-        <section class="panel panel-mid">
-            <div class="sub-card sub-card-full">
-                <h2>Sprints</h2>
-                <div id="introSprints" class="intro-list"></div>
-                <a href="../app_historias/sprints.html" class="btn-action btn-navy">Gestionar Sprints</a>
-            </div>
-        </section>
-
-        <!-- Columna derecha: Historias de usuario -->
-        <section class="panel panel-board">
-            <div class="sub-card sub-card-full">
-                <h2>Historias de Usuario</h2>
-                <div id="introHistorias" class="intro-list"></div>
-                <div class="intro-actions-row">
-                    <a href="../app_historias/nueva_historia.html" class="btn-action btn-accent">Nueva Historia</a>
-                    <a href="../app_historias/index.html" class="btn-action btn-navy">Ver Tablero</a>
+            <div class="inicio-mini-tablero">
+                <span class="mini-tablero-label">Resumen del tablero</span>
+                <div class="mini-tablero-stats">
+                    <div>
+                        <strong id="miniTotalSprints">0</strong>
+                        <span>Sprints</span>
+                    </div>
+                    <div>
+                        <strong id="miniTotalHistorias">0</strong>
+                        <span>Historias</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </aside>
+
+        <!-- Columna central: Sprints e historias -->
+        <main class="inicio-main">
+            <header class="inicio-main-header">
+                <h1>Seguimiento de historias de usuario por sprints</h1>
+            </header>
+
+            <div id="contenedorSeguimientoSprints" class="sprints-feed"></div>
+        </main>
+
+        <!-- Columna derecha: Fecha / Calendario -->
+        <aside class="inicio-aside-right">
+            <section class="calendario-card" aria-label="Calendario actual">
+                <span class="calendario-eyebrow">FECHA ACTUAL</span>
+                <h2 id="fechaActualTexto"></h2>
+                <div id="calendarioMesTitulo" class="calendario-mes"></div>
+                <div class="calendario-dias-semana">
+                    <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+                </div>
+                <div id="calendarioGrilla" class="calendario-grilla"></div>
+            </section>
+
+
+            <section class="aside-widget-card" aria-label="Recordatorios y alertas">
+            <span class="calendario-eyebrow">RECORDATORIOS Y ALERTAS</span>
+             <h3 class="aside-widget-title">Atención rápida</h3>
+            <ul id="listaAlertasInicio" class="alertas-lista">
+        <li class="alerta-item alerta-neutro">Revisando estado de sprints e historias...</li>
+    </ul>
+</section>
+
+
+        </aside>
     </div>
 
     <script type="module" src="index.js"></script>

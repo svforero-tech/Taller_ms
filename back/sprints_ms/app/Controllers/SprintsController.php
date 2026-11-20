@@ -52,14 +52,14 @@ class SprintsController
     {
         $data = $request->getParsedBody();
 
-        if (empty($data['nombre']) || empty($data['fecha_inicio'])) {
+        if (empty($data['nombre']) || empty($data['fecha_inicio']) || empty($data['fecha_fin'])) {
             return $this->jsonResponse($response, [
                 'status'  => 'error',
-                'message' => 'Los campos nombre y fecha_inicio son obligatorios',
+                'message' => 'Los campos nombre, fecha_inicio y fecha_fin son obligatorios',
             ], 400);
         }
 
-        if (!empty($data['fecha_fin']) && $data['fecha_fin'] < $data['fecha_inicio']) {
+        if ($data['fecha_fin'] < $data['fecha_inicio']) {
             return $this->jsonResponse($response, [
                 'status'  => 'error',
                 'message' => 'La fecha_fin no puede ser menor que fecha_inicio'

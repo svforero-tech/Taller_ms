@@ -1,3 +1,36 @@
+:root {
+    --mauve: #86576B;
+    --mauve-hover: #6e4557;
+    --winter-mist: #DBCFD1;
+    --lavender: #8A7C9D;
+    --lavender-hover: #756788;
+    --glimmer: #F6E9DA;
+    --snow: #D0D7E4;
+
+    --text-primary: #2d1f26;
+    --text-secondary: #56434c;
+    --text-muted: #76626b;
+    --border-soft: rgba(134, 87, 107, 0.22);
+    --border-strong: rgba(134, 87, 107, 0.42);
+}
+
+
+:root {
+    --mauve: #86576B;
+    --mauve-hover: #6e4557;
+    --winter-mist: #DBCFD1;
+    --lavender: #8A7C9D;
+    --lavender-hover: #756788;
+    --glimmer: #F6E9DA;
+    --snow: #D0D7E4;
+
+    --text-primary: #2d1f26;
+    --text-secondary: #56434c;
+    --text-muted: #76626b;
+    --border-soft: rgba(134, 87, 107, 0.22);
+    --border-strong: rgba(134, 87, 107, 0.42);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,13 +38,13 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #eef2f6;
-    color: #1e293b;
+    background-color: var(--glimmer);
+    color: var(--text-primary);
 }
 
-/* Barra superior estilo encabezado clásico */
+/* Barra superior */
 .topbar {
-    background: linear-gradient(90deg, #1d3557 0%, #2b4c7e 100%);
+    background: linear-gradient(90deg, var(--mauve) 0%, var(--lavender) 100%);
     color: #ffffff;
     padding: 16px 26px;
     display: flex;
@@ -19,8 +52,8 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    border-bottom: 4px solid #e07a5f;
-    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.14);
+    border-bottom: 4px solid var(--winter-mist);
+    box-shadow: 0 3px 10px rgba(134, 87, 107, 0.14);
 }
 
 .topbar h1 {
@@ -32,7 +65,7 @@ body {
 }
 
 .topbar a {
-    color: #f1faee;
+    color: #ffffff;
     background-color: rgba(255, 255, 255, 0.14);
     border: 1px solid rgba(255, 255, 255, 0.28);
     padding: 6px 12px;
@@ -58,19 +91,19 @@ body {
 
 /* Contenedores tipo ficha / tarjeta */
 .card {
-    background-color: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-top: 4px solid #2b4c7e;
+    background-color: #fffdf9;
+    border: 1px solid var(--border-soft);
+    border-top: 4px solid var(--mauve);
     border-radius: 8px;
     padding: 18px 22px;
-    box-shadow: 0 4px 12px rgba(29, 53, 87, 0.07);
+    box-shadow: 0 4px 12px rgba(134, 87, 107, 0.07);
 }
 
 .card h2 {
     margin: 0 0 16px;
     font-size: 1.08rem;
-    color: #1d3557;
-    border-bottom: 2px solid #e2e8f0;
+    color: var(--mauve);
+    border-bottom: 2px solid var(--winter-mist);
     padding-bottom: 8px;
     display: flex;
     align-items: center;
@@ -91,8 +124,8 @@ body {
     gap: 12px;
     margin-bottom: 18px;
     padding: 10px 12px;
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background-color: var(--glimmer);
+    border: 1px solid var(--border-soft);
     border-radius: 6px;
 }
 
@@ -121,21 +154,21 @@ body {
 
 .historia-card {
     background-color: #fffdf9;
-    border: 1px solid #cbd5e1;
-    border-left: 5px solid #e07a5f;
+    border: 1px solid var(--border-soft);
+    border-left: 5px solid var(--lavender);
     border-radius: 8px;
     padding: 14px 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 3px 8px rgba(134, 87, 107, 0.06);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .historia-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.1);
+    box-shadow: 0 6px 14px rgba(134, 87, 107, 0.12);
 }
 
 .historia-header {
@@ -143,32 +176,32 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     gap: 10px;
-    border-bottom: 1px dashed #e2e8f0;
+    border-bottom: 1px dashed var(--border-soft);
     padding-bottom: 8px;
 }
 
 .historia-header h4 {
     margin: 0 0 5px;
     font-size: 1.02rem;
-    color: #1d3557;
+    color: var(--mauve);
 }
 
 .meta-info,
 .fechas-info {
-    color: #475569;
+    color: var(--text-secondary);
     font-size: 0.82rem;
     line-height: 1.4;
 }
 
 .historia-desc {
     margin: 4px 0;
-    color: #334155;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.45;
-    background-color: #f8fafc;
+    background-color: var(--glimmer);
     padding: 8px 10px;
     border-radius: 6px;
-    border: 1px solid #edf2f7;
+    border: 1px solid var(--border-soft);
 }
 
 .historia-footer {
@@ -178,7 +211,7 @@ body {
     flex-wrap: wrap;
     gap: 8px;
     padding-top: 6px;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--winter-mist);
 }
 
 .card-actions {
@@ -189,16 +222,16 @@ body {
 /* Agrupación por sprint */
 .sprint-grupo {
     grid-column: 1 / -1;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--border-soft);
     border-radius: 8px;
     margin-bottom: 6px;
     overflow: hidden;
-    background-color: #ffffff;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+    background-color: #fffdf9;
+    box-shadow: 0 2px 6px rgba(134, 87, 107, 0.05);
 }
 
 .sprint-grupo-header {
-    background-color: #1d3557;
+    background-color: var(--mauve);
     color: #ffffff;
     padding: 11px 16px;
     display: flex;
@@ -214,11 +247,11 @@ body {
 }
 
 .sprint-grupo-header small {
-    color: #cbd5e1;
+    color: var(--snow);
 }
 
 .sprint-resumen {
-    background-color: #e07a5f;
+    background-color: var(--lavender);
     color: #ffffff;
     padding: 4px 10px;
     border-radius: 999px;
@@ -244,7 +277,7 @@ body {
     gap: 8px;
     padding: 8px 10px;
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-soft);
     border-radius: 6px;
 }
 
@@ -255,7 +288,7 @@ body {
 }
 
 .sprint-vacio {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.88rem;
     padding: 6px 2px;
 }
@@ -270,14 +303,14 @@ body {
 
 .intro-item-card {
     background-color: #fffdf9;
-    border: 1px solid #cbd5e1;
-    border-left: 4px solid #2b4c7e;
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--lavender);
     border-radius: 6px;
     padding: 12px 14px;
 }
 
 .intro-item-historia {
-    border-left-color: #e07a5f;
+    border-left-color: var(--mauve);
 }
 
 .intro-item-top {
@@ -291,12 +324,12 @@ body {
 .intro-item-card h4 {
     margin: 0;
     font-size: 0.98rem;
-    color: #1d3557;
+    color: var(--mauve);
 }
 
 .intro-badge {
-    background-color: #e2e8f0;
-    color: #1e293b;
+    background-color: var(--snow);
+    color: var(--text-primary);
     padding: 2px 8px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -306,7 +339,7 @@ body {
 .intro-item-desc {
     margin: 8px 0 0 !important;
     font-size: 0.86rem !important;
-    color: #334155 !important;
+    color: var(--text-secondary) !important;
 }
 
 .intro-actions-row {

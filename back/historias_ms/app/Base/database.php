@@ -17,3 +17,5 @@ $capsule->addConnection([
 
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
+
+//php -S 127.0.0.1:8002 -t public
